@@ -13,6 +13,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="122dp"
         android:layout_height="55dp"
+        android:onClick="onClick"
         android:text="Vacina"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonCadastro"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -66,13 +67,16 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="377dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/zegotinha"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginTop="-62dp"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/buttonLocais"
@@ -80,6 +84,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="3dp"
         android:layout_marginStart="4dp"
+        android:onClick="onClick"
         android:text="Locais"
         app:layout_constraintBottom_toBottomOf="@+id/buttonVac"
         app:layout_constraintLeft_toRightOf="@+id/buttonVac"
@@ -92,7 +97,7 @@
 
     <Button
         android:id="@+id/buttonImc"
-        android:layout_width="110dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginEnd="3dp"
         android:layout_marginStart="2dp"
@@ -108,15 +113,13 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="110dp"
-        android:layout_height="57dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="Button"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="9dp"
         app:layout_constraintRight_toRightOf="@+id/buttonCadastro"
         app:layout_constraintTop_toBottomOf="@+id/buttonVac"
         tools:layout_constraintLeft_creator="1"

@@ -1,9 +1,11 @@
-package com.neri.alexa.cartaovacina;
+package com.neri.alexa.cartaovacina.Repositorio;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.neri.alexa.cartaovacina.Modal.Usuario;
 
 
 /**

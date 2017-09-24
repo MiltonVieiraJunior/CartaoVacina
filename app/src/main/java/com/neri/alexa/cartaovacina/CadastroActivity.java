@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.neri.alexa.cartaovacina.Modal.Usuario;
+import com.neri.alexa.cartaovacina.Repositorio.BancoDados;
+
 public class CadastroActivity extends AppCompatActivity {
 
     private Button btnCadastra;

@@ -1,4 +1,4 @@
-package com.neri.alexa.cartaovacina;
+package com.neri.alexa.cartaovacina.Modal;
 
 import android.content.Context;
 import android.database.Cursor;

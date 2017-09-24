@@ -40,7 +40,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListaVacinaActivity" />
-        <activity android:name=".ImcActivity"></activity>
+        <activity android:name=".ImcActivity" />
+        <activity android:name=".ListVacinaActivity" />
+        <activity android:name=".DescricaoVacinaActivity" />
+        <activity android:name=".HospitaListActivity" />
+        <activity android:name=".DescricaoHospitalActivity" />
+        <activity android:name=".ListaUsuarioActivity"></activity>
     </application>
 
 </manifest>
