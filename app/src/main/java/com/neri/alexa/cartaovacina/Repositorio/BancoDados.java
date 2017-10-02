@@ -1,57 +1,58 @@
 package com.neri.alexa.cartaovacina.Repositorio;
 
-import android.content.ContentValues;
-import android.content.Context;
+import android.app.Activity;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Bundle;
+import android.widget.Toast;
 
 import com.neri.alexa.cartaovacina.Modal.Usuario;
 
+public class BancoDados extends Activity {
 
-/**
- * Created by alexa on 17/09/2017.
- */
-
-public class BancoDados extends SQLiteOpenHelper{
-
-    private static String NOME_BANCO = "cartaovacina.db";
+    private static  final String NOME_BANCO = "cartaovacina.db";
     private static final int VERSAO = 1;
     private static final String ID = "id";
     private static final String TABELA = "usuario";
     private static final String NOME =  "nome";
     private static final String EMAIL = "email";
-
-
-    public BancoDados(Context context){
-        super(context,NOME_BANCO,null,VERSAO);
-    }
+    private SQLiteDatabase banco;
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-       String sql  =  "CREATE TABLE "+TABELA+" ( "+
-               " " + ID + " integer primary key autoincrement, " +
-               " "+NOME+" text, " +EMAIL+ " text );";
+    public void onCreate(Bundle savedInstaceState) {
+        super.onCreate(savedInstaceState);
 
-       db.execSQL(sql);
+        setBanco(openOrCreateDatabase(NOME_BANCO, MODE_PRIVATE, null));
+
+        getBanco().execSQL( "CREATE TABLE IF NOT EXISTS "+TABELA+" ( "+
+                ID+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                NOME+" VARCHAR, " +
+                EMAIL+ " VARCHAR );");
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IS EXISTS "+TABELA;
-        db.execSQL(sql);
-        onCreate(db);
+    public boolean salvaUsuario (Usuario user){
+        try{
+            Cursor cursor = getBanco().rawQuery("SELECT * FROM "+TABELA+" WHERE "+EMAIL+" = '"+user.getEmail()+"'", null);
+            cursor.moveToFirst();
 
+            if (cursor == null){
+                getBanco().execSQL("INSERT INTO "+TABELA+" ("+NOME+", "+EMAIL+") VALUES ('"+user.getNome()+"', '"+user.getEmail()+"');");
+                return true;
+            } else {
+                Toast.makeText(getApplicationContext(), "Já existe um usuário com este e-mail", Toast.LENGTH_LONG);
+                return false;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public long salvaUsuario (Usuario u){
-        ContentValues values = new ContentValues();
-        long retornoBD;
+    public SQLiteDatabase getBanco() {
+        return banco;
+    }
 
-        values.put (NOME, u.getNome());
-        values.put (EMAIL, u.getEmail());
-
-        retornoBD = getWritableDatabase().insert(TABELA, null, values);
-
-        return  retornoBD;
+    public void setBanco(SQLiteDatabase banco) {
+        this.banco = banco;
     }
 }

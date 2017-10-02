@@ -16,36 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".CartaoActivity"
-            android:label="@string/title_activity_cartao"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.neri.alexa.cartaovacina.MainActivity" />
-        </activity>
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Main22Activity"
-            android:label="@string/title_activity_main22" />
-        <activity android:name=".CadastroActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".CadastroActivity" />
         <activity android:name=".ListaVacinaActivity" />
         <activity android:name=".ImcActivity" />
-        <activity android:name=".ListVacinaActivity" />
         <activity android:name=".DescricaoVacinaActivity" />
         <activity android:name=".HospitaListActivity" />
         <activity android:name=".DescricaoHospitalActivity" />
-        <activity android:name=".ListaUsuarioActivity"></activity>
+        <activity android:name=".ListaUsuarioActivity" />
     </application>
 
 </manifest>
