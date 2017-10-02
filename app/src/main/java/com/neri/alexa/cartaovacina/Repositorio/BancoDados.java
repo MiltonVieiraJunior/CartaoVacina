@@ -30,21 +30,20 @@ public class BancoDados extends Activity {
                 EMAIL+ " VARCHAR );");
     }
 
-    public boolean salvaUsuario (Usuario user){
+    public String salvaUsuario (Usuario user){
         try{
             Cursor cursor = getBanco().rawQuery("SELECT * FROM "+TABELA+" WHERE "+EMAIL+" = '"+user.getEmail()+"'", null);
             cursor.moveToFirst();
 
             if (cursor == null){
                 getBanco().execSQL("INSERT INTO "+TABELA+" ("+NOME+", "+EMAIL+") VALUES ('"+user.getNome()+"', '"+user.getEmail()+"');");
-                return true;
+                return "Usuário cadastrado com sucesso!";
             } else {
-                Toast.makeText(getApplicationContext(), "Já existe um usuário com este e-mail", Toast.LENGTH_LONG);
-                return false;
+                return "Já existe um usuário com este e-mail!";
             }
         }catch(Exception e){
             e.printStackTrace();
-            return false;
+            return "Erro ao cadastrar o usuário!";
         }
     }
 

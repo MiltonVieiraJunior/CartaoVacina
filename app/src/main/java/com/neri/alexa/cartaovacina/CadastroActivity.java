@@ -39,12 +39,7 @@ public class CadastroActivity extends AppCompatActivity {
                 getUsuario().setNome(  editNome.getText().toString());
                 getUsuario().setEmail(editEmail.getText().toString());
 
-
-                if (getBanco().salvaUsuario(getUsuario())) {
-                    alert("erro ao cadastrar");
-                } else {
-                    alert("sucesso");
-                }
+                alert(getBanco().salvaUsuario(getUsuario()));
             }
         });
 
@@ -54,7 +49,6 @@ public class CadastroActivity extends AppCompatActivity {
     private void alert(String s ){
         Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
     }
-
 
     public Usuario getUsuario() {
         return usuario;
