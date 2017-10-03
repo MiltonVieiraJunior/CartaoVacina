@@ -13,6 +13,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageView iv = (ImageView) findViewById(R.id.imageView3);
+        iv.setImageResource(R.drawable.zegotinha);
 
     }
 

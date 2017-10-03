@@ -43,7 +43,7 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Vacina va = new Vacina("hepatite");
+                Vacina va = new Vacina("hepatite","12","fdf","fddf");
 
 
                 usuario.setVacina(va);

@@ -47,15 +47,30 @@ public class ListaVacinaActivity extends AppCompatActivity {
     private ArrayList<Vacina> addvacinas(){
         ArrayList<Vacina> vacina = new ArrayList<Vacina>();
 
-        Vacina a = new Vacina("Bcg");
+        Vacina a = new Vacina("Bcg","Ao Nascer","Dose Unica", "0.1 ml");
         vacina.add(a);
-        Vacina b= new Vacina("Hepatite B");
+        Vacina b= new Vacina("Hepatite B","Ao Nascer","1° Dose", "0.5 ml");
         vacina.add(b);
-        Vacina c = new Vacina("Vacina Pentavalente");
+        Vacina c = new Vacina("Vacina Pentavalente","2 Meses","1° Dose", "0.5 ml");
         vacina.add(c);
-        Vacina d = new Vacina("Vacina Inativada contra Poliomelite");
+        Vacina d = new Vacina("Vacina Inativa Contra Poliomelite","2 Meses","1° Dose", "0.5 ml");
         vacina.add(d);
-
+        Vacina e = new Vacina("Vacina Oral RotaVirus Humano","2 Meses","1° Dose", "1.5 ml");
+        vacina.add(e);
+        Vacina f = new Vacina("Pneumococica 10","2 Meses","1° Dose", "0.5 ml");
+        vacina.add(f);
+        Vacina g = new Vacina("Meningococica C","3 Meses","1° Dose", "0.5 ml");
+        vacina.add(g);
+        Vacina h = new Vacina("Hepatite A","12 Meses"," Dose", "0.5 ml");
+        vacina.add(h);
+        Vacina i = new Vacina("Triplice Bacteriana ","4 anos"," 2° reforço ", "0.5 ml");
+        vacina.add(i);
+        Vacina j = new Vacina("Hpv","9 a 11 anos"," ", "0.5 ml");
+        vacina.add(j);
+        Vacina r = new Vacina("Hepatite B","10 a 19 Anos"," 1° Dose", "");
+        vacina.add(r);
+        Vacina s = new Vacina("influenza sazonal","60 anos e mais"," Dose unica", "");
+        vacina.add(s);
 
         return vacina;
 
