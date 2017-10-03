@@ -34,20 +34,26 @@ public class CadastroActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 setUsuario(new Usuario());
-                setBanco(new BancoDados());
+                BancoDados bd = new BancoDados(CadastroActivity.this);
 
-                getUsuario().setNome(  editNome.getText().toString());
-                getUsuario().setEmail(editEmail.getText().toString());
+                usuario.setNome(  editNome.getText().toString());
+                usuario.setEmail(editEmail.getText().toString());
 
-                alert(getBanco().salvaUsuario(getUsuario()));
+                boolean res =  bd.salvaUsuario(usuario);
+
+                if (res=true) {
+                    alert("cadsatrado");
+                }else{
+                    alert("Erro ao cadastra");
+                }
             }
         });
 
     }
 
 
-    private void alert(String s ){
-        Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
+      private void alert(String s ){
+        Toast.makeText(this,s, Toast.LENGTH_SHORT).show();
     }
 
     public Usuario getUsuario() {

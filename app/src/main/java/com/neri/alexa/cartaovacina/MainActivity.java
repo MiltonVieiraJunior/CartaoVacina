@@ -13,14 +13,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView image = (ImageView) findViewById(R.id.imageView);
+        //ImageView image = (ImageView) findViewById(R.id.imageView);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
-            case R.id.buttonCadastro:
+            case R.id.buttonCadastroUsusario:
                 intent = new Intent(MainActivity.this, CadastroActivity.class);
                 startActivity(intent);
                 break;
@@ -30,7 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
-            case R.id.buttonVac:
+            case R.id.buttonVacina:
                 intent = new Intent(MainActivity.this, ListaVacinaActivity.class);
                 startActivity(intent);
                 break;
@@ -38,6 +38,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.buttonLocais:
                 intent = new Intent(MainActivity.this, HospitaListActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.buttonCartao:
+                intent = new Intent(MainActivity.this, ListaUsuarioActivity.class);
+                startActivity(intent);;
                 break;
         }
     }

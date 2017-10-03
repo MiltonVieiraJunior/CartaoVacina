@@ -15,6 +15,29 @@ import java.util.prefs.BackingStoreException;
 
 public class Usuario {
 
+    private int id;
+    private ArrayList<Vacina> vacina = new ArrayList<>();
+
+    public ArrayList<Vacina> getVacina() {
+
+
+        return vacina;
+    }
+
+    public void setVacina(Vacina v) {
+        this.vacina.add(v);
+
+    }
+
+    public int getId() {
+
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String nome;
     private String email;
     private String data;
