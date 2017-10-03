@@ -47,8 +47,15 @@ public class ListaVacinaActivity extends AppCompatActivity {
     private ArrayList<Vacina> addvacinas(){
         ArrayList<Vacina> vacina = new ArrayList<Vacina>();
 
-        Vacina v = new Vacina("alex","3 meses","aline","fojsdo", "ofojdof","fidjfosj");
-        vacina.add(v);
+        Vacina a = new Vacina("Bcg");
+        vacina.add(a);
+        Vacina b= new Vacina("Hepatite B");
+        vacina.add(b);
+        Vacina c = new Vacina("Vacina Pentavalente");
+        vacina.add(c);
+        Vacina d = new Vacina("Vacina Inativada contra Poliomelite");
+        vacina.add(d);
+
 
         return vacina;
 

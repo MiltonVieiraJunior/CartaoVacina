@@ -3,10 +3,14 @@ package com.neri.alexa.cartaovacina;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.neri.alexa.cartaovacina.Modal.Usuario;
+import com.neri.alexa.cartaovacina.Modal.Vacina;
 import com.neri.alexa.cartaovacina.Repositorio.BancoDados;
 
 public class AdicionarVacinasActivity extends AppCompatActivity {
@@ -25,11 +29,31 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
         final Usuario usuario = bd.getUsuario(id);
 
 
-        vacinas = (Spinner) findViewById(R.id.spinner);
-        String []opciones = {"hepatite", "sarampo","toma"};
 
-        ArrayAdapter<String> adapter = new  ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
-        vacinas.setAdapter(adapter);
+       // vacinas = (Spinner) findViewById(R.id.spinner);
+       // String []opciones = {"hepatite", "sarampo","toma"};
+
+      //  ArrayAdapter<String> adapter = new  ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
+      //  vacinas.setAdapter(adapter);
+
+        Button addVacina =  (Button) findViewById(R.id.ADDvaciana);
+        final EditText editText = (EditText) findViewById(R.id.editTextVacinaAdd);
+
+        addVacina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Vacina va = new Vacina("hepatite");
+
+
+                usuario.setVacina(va);
+
+                bd.salvaVacina(usuario);
+
+            }
+        });
+
+
 
 
 

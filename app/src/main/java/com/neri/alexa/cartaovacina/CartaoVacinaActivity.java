@@ -11,7 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.neri.alexa.cartaovacina.Adapter.UsuarioAdapter;
-import com.neri.alexa.cartaovacina.Adapter.VacinasTomadasAdapter;
+
+import com.neri.alexa.cartaovacina.Adapter.VacinaTomadaAdapter;
 import com.neri.alexa.cartaovacina.Modal.Usuario;
 import com.neri.alexa.cartaovacina.Modal.Vacina;
 import com.neri.alexa.cartaovacina.Repositorio.BancoDados;
@@ -44,9 +45,10 @@ public class CartaoVacinaActivity extends AppCompatActivity {
 
         ListView listaVacina =  (ListView) findViewById(R.id.listViewVacinasTomadas);
 
-        ArrayList<Vacina> lista = usuario.getVacina();
-        VacinasTomadasAdapter adapter = new VacinasTomadasAdapter(this, lista);
-        listaVacina.setAdapter(adapter);
+       // ArrayList<Usuario> listaUsuario = bd.getAllVacina();
+       // VacinaTomadaAdapter adapter = new VacinaTomadaAdapter(this, listaUsuario);
+
+      //  listaVacina.setAdapter(adapter);
 
 
 

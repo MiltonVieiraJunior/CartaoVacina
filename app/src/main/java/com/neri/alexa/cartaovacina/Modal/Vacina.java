@@ -12,13 +12,9 @@ public class Vacina {
     private String qtd;
     private String via_adm;
 
-    public Vacina(String idade, String nome, String doenca_protecao, String dose, String qtd, String via_adm) {
-        this.idade = idade;
+    public Vacina( String nome) {
         this.nome = nome;
-        this.doenca_protecao = doenca_protecao;
-        this.dose = dose;
-        this.qtd = qtd;
-        this.via_adm = via_adm;
+
     }
 
     public void setIdade(String idade) {

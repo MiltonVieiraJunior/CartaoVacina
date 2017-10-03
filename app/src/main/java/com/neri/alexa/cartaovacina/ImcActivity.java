@@ -7,14 +7,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class ImcActivity extends AppCompatActivity {
 
     private Button btnResultado ;
     private EditText editPeso;
     private EditText editAltura;
-    private EditText editResultado;
-
+    private TextView editResultado;
+    private TextView resul;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +26,9 @@ public class ImcActivity extends AppCompatActivity {
 
         btnResultado =  (Button) findViewById(R.id.buttonResultado);
         editPeso =  (EditText) findViewById(R.id.editTextPeso);
-        editAltura =  (EditText)findViewById(R.id.editTextAlrura);
-        editResultado =  (EditText) findViewById(R.id.editTextResultado) ;
+        editAltura =  (EditText)findViewById(R.id.editTextAltura);
+        editResultado =  (TextView) findViewById(R.id.editTextResultado) ;
+        resul =  (TextView) findViewById(R.id.textView7);
 
         btnResultado.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +39,22 @@ public class ImcActivity extends AppCompatActivity {
 
                 double resultado =  peso / (altura*altura);
                 editResultado.setText(String.valueOf(resultado));
+
+                if (resultado<18.5){
+                    resul.setText("Abaixo do Peso");
+                }else{
+                    if (resultado>=18.5 && resultado<25){
+                        resul.setText("Peso Normal");
+                    }else{
+                        if(resultado>=25 && resultado<30) {
+                            resul.setText("Acima do Peso");
+                        }else{
+                            if (resultado>=30){
+                                resul.setText("Obeso");
+                            }
+                        }
+                    }
+                }
             }
         });
     }

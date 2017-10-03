@@ -26,7 +26,7 @@
         <activity android:name=".AlterarERemoverUsuarioActivity" />
         <activity android:name=".CartaoVacinaActivity" />
         <activity android:name=".AdicionarVacinasActivity" />
-        <activity android:name=".Main2Activity"></activity>
+
     </application>
 
 </manifest>

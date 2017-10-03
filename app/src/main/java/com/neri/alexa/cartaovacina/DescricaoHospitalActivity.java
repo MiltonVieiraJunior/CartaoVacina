@@ -26,7 +26,7 @@ public class DescricaoHospitalActivity extends AppCompatActivity {
         Tnome.setText(nome);
         Tfone.setText(fone);
         Tbairro.setText(bairro);
-        Tbairro.setText(endereco);
+        Tendereco.setText(endereco);
 
     }
 }

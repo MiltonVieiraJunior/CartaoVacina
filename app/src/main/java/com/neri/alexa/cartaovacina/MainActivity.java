@@ -13,7 +13,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //ImageView image = (ImageView) findViewById(R.id.imageView);
+
     }
 
     @Override

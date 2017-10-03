@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.ArrayAdapter;
 
 import com.neri.alexa.cartaovacina.Modal.Usuario;
+import com.neri.alexa.cartaovacina.Modal.Vacina;
 
 import java.util.ArrayList;
 
@@ -24,10 +25,13 @@ public class BancoDados extends SQLiteOpenHelper{
     private static String NOME_BANCO = "cartaovacina.db";
     private static final int VERSAO = 1;
     private static final String ID = "id";
+    private static final String ID_VACINA =  "id_vacina";
     private static final String TABELA = "usuario";
+    private static final String TABELA2 = "vacinas";
     private static final String NOME =  "nome";
     private static final String EMAIL = "email";
     private static final String DATA = "data";
+    private static final String VACINA =  "vacina";
 
 
     private static  final String[] COLUNAS = {ID,NOME,EMAIL};
@@ -41,7 +45,11 @@ public class BancoDados extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         String sql  =  "CREATE TABLE "+TABELA+" ( "+
                 " " + ID + " integer primary key autoincrement, " +
-                " "+NOME+" text, " +EMAIL+ " text "+ DATA +" text  );";
+                " "+NOME+" text, " +EMAIL+ " text "+ DATA +" text  );"+
+
+                "CREATE TABLE "+TABELA2+" ( "+
+                " " + ID_VACINA + " integer primary key autoincrement, " +
+                " " +VACINA+ " text " +"FOREIGN KEY("+ID_VACINA+") REFERENCES "+ TABELA +"( "+ID+" );";
 
         db.execSQL(sql);
     }
@@ -54,6 +62,16 @@ public class BancoDados extends SQLiteOpenHelper{
 
     }
 
+    public void salvaVacina (Usuario usuario){
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put (VACINA, usuario.getVacina().getNome());
+
+        db.insert (TABELA2,null,values);
+        db.close();
+
+    }
+
     public boolean salvaUsuario (Usuario usuario)
     {
         SQLiteDatabase db =this.getWritableDatabase();
@@ -63,11 +81,7 @@ public class BancoDados extends SQLiteOpenHelper{
 
         db.insert (TABELA,null,values);
         db.close();
-
         return true;
-
-
-
     }
 
     public Usuario getUsuario(int id){
@@ -89,6 +103,35 @@ public class BancoDados extends SQLiteOpenHelper{
         usuario.setEmail(cursor.getString(2));
         return usuario;
     }
+
+
+
+
+    public ArrayList<Usuario> getAllVacina(){
+
+        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+
+        String query = "SELECT * FROM " + TABELA;
+
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                Usuario usuario = cursorToUsuario(cursor);
+                listaUsuarios.add(usuario);
+
+            }while (cursor.moveToNext());
+        }
+        return listaUsuarios;
+    }
+
+
+
+
+
+
+
 
     public ArrayList<Usuario> getAllUsuario(){
 
@@ -116,7 +159,7 @@ public class BancoDados extends SQLiteOpenHelper{
             ContentValues values = new ContentValues();
             values.put (NOME, usuario.getNome());
             values.put (EMAIL, usuario.getEmail());
-            
+
         int i = db.update(TABELA,values,ID+" = ? ", new String[] {String.valueOf(usuario.getId())});
 
         db.close();
