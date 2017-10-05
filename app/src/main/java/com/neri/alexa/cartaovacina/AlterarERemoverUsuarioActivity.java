@@ -41,7 +41,7 @@ public class AlterarERemoverUsuarioActivity extends AppCompatActivity {
                 usuario.setNome(usuario.getNome().toString());
                 usuario.setEmail(usuario.getEmail().toString());
                 bd.atualizaUsuario(usuario);
-                Toast.makeText(getBaseContext(), "Livro alterado com sucesso.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Usuario alterado com sucesso.", Toast.LENGTH_LONG).show();
                 finish();
             }
         });

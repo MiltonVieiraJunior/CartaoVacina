@@ -8,37 +8,6 @@ public class Usuario {
 
     private int id;
     private Vacina vacina;
-    private byte[] foto;
-
-    public byte[] getFoto() {
-        return foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
-
-    public Vacina getVacina() {
-
-
-
-
-        return vacina;
-    }
-
-    public void setVacina(Vacina v) {
-        this.vacina=  v;
-
-    }
-
-    public int getId() {
-
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     private String nome;
     private String email;
@@ -47,6 +16,12 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Vacina getVacina() { return vacina; }
+    public void setVacina(Vacina v) { this.vacina=  v;}
+    public int getId() { return id; }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNome() {
         return nome;
     }
@@ -56,7 +31,6 @@ public class Usuario {
     public String getData() {
         return data;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
