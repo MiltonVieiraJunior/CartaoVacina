@@ -1,4 +1,4 @@
-package com.neri.alexa.cartaovacina.Modal;
+package com.neri.alexa.cartaovacina.Model;
 
 /**
  * Created by alexa on 19/09/2017.

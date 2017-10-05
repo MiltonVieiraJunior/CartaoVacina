@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.neri.alexa.cartaovacina.Modal.Hospital;
+import com.neri.alexa.cartaovacina.Model.Hospital;
 import com.neri.alexa.cartaovacina.R;
 
 import java.util.ArrayList;

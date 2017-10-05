@@ -1,25 +1,15 @@
 package com.neri.alexa.cartaovacina;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.neri.alexa.cartaovacina.Adapter.UsuarioAdapter;
-
-import com.neri.alexa.cartaovacina.Adapter.VacinaTomadaAdapter;
-import com.neri.alexa.cartaovacina.Modal.Usuario;
-import com.neri.alexa.cartaovacina.Modal.Vacina;
+import com.neri.alexa.cartaovacina.Model.Usuario;
 import com.neri.alexa.cartaovacina.Repositorio.BancoDados;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CartaoVacinaActivity extends AppCompatActivity {
 

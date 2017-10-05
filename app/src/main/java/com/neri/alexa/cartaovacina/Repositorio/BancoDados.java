@@ -5,14 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.ArrayAdapter;
 
-import com.neri.alexa.cartaovacina.Modal.Usuario;
-import com.neri.alexa.cartaovacina.Modal.Vacina;
+import com.neri.alexa.cartaovacina.Model.Usuario;
 
 import java.util.ArrayList;
-
-import static com.neri.alexa.cartaovacina.R.layout.usuario;
 
 
 /**
@@ -32,6 +28,9 @@ public class BancoDados extends SQLiteOpenHelper{
     private static final String EMAIL = "email";
     private static final String DATA = "data";
     private static final String VACINA =  "vacina";
+    private static final String sTABLE_USUARIO_VACINA = "tb_usuario_vacina";
+    private static final String sCOLUMN_USUARIO = "usuario";
+
 
 
     private static  final String[] COLUNAS = {ID,NOME,EMAIL};
@@ -43,13 +42,21 @@ public class BancoDados extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql  =  "CREATE TABLE "+TABELA+" ( "+
+        String sql = "CREATE TABLE IF NOT EXISTS " + TABELA + " ( " +
                 " " + ID + " integer primary key autoincrement, " +
-                " "+NOME+" text, " +EMAIL+ " text "+ DATA +" text  );"+
+                " " + NOME + " varchar, " + EMAIL + " varchar " + DATA + " varchar  );" +
 
-                "CREATE TABLE "+TABELA2+" ( "+
+                "CREATE TABLE IF NOT EXISTS " + TABELA2 + " ( " +
                 " " + ID_VACINA + " integer primary key autoincrement, " +
-                " " +VACINA+ " text " +"FOREIGN KEY("+ID_VACINA+") REFERENCES "+ TABELA +"( "+ID+" );";
+                " " + VACINA + " varchar " + "FOREIGN KEY(" + ID_VACINA + ") REFERENCES " + TABELA + "( " + ID + " );" +
+
+                "CREATE TABLE IF NOT EXISTS " + sTABLE_USUARIO_VACINA + " ( " +
+                " " + ID + " integer primary key autoincrement, " +
+                " " + VACINA + " integer, "
+                + sCOLUMN_USUARIO + " integer "
+                + "FOREIGN KEY(" + VACINA + ") REFERENCES " + TABELA2 + "( " + ID + " );"
+                + "FOREIGN KEY(" + sCOLUMN_USUARIO + ") REFERENCES " + TABELA + "( " + ID + " );";
+
 
         db.execSQL(sql);
     }

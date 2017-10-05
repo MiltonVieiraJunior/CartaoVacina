@@ -28,5 +28,6 @@
         <activity android:name=".AdicionarVacinasActivity" />
 
     </application>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
 </manifest>

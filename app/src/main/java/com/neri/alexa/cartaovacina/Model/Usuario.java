@@ -1,13 +1,4 @@
-package com.neri.alexa.cartaovacina.Modal;
-
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import android.graphics.Bitmap;
-
-import java.util.ArrayList;
-import java.util.prefs.BackingStoreException;
+package com.neri.alexa.cartaovacina.Model;
 
 /**
  * Created by alexa on 17/09/2017.
