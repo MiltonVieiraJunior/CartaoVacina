@@ -7,8 +7,6 @@ package com.neri.alexa.cartaovacina.Model;
 public class Usuario {
 
     private int id;
-    private Vacina vacina;
-
     private String nome;
     private String email;
     private String data;
@@ -16,8 +14,6 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Vacina getVacina() { return vacina; }
-    public void setVacina(Vacina v) { this.vacina=  v;}
     public int getId() { return id; }
     public void setId(int id) {
         this.id = id;

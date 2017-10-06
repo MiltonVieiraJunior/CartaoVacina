@@ -1,21 +1,15 @@
 package com.neri.alexa.cartaovacina.Adapter;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
-
-import com.neri.alexa.cartaovacina.Model.Usuario;
-import com.neri.alexa.cartaovacina.Model.Vacina;
 import com.neri.alexa.cartaovacina.Model.VacinaTomada;
 import com.neri.alexa.cartaovacina.R;
-
 import java.util.ArrayList;
-import java.util.ResourceBundle;
+
 
 /**
  * Created by alexa on 03/10/2017.
@@ -38,12 +32,10 @@ import java.util.ResourceBundle;
 
             TextView nomeVacina = (TextView) rowView.findViewById(R.id.textViewVacinaTomada);
 
-
             nomeVacina.setText(elementos.get(position).getNome());
-
 
             return rowView;
         }
-    }
+}
 
 

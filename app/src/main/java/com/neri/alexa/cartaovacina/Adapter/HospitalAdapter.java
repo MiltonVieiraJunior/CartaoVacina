@@ -11,11 +11,9 @@ import com.neri.alexa.cartaovacina.Model.Hospital;
 import com.neri.alexa.cartaovacina.R;
 
 import java.util.ArrayList;
-
 /**
  * Created by alexa on 23/09/2017.
  */
-
 public class HospitalAdapter extends ArrayAdapter {
 
     private Context context = null;
@@ -39,6 +37,4 @@ public class HospitalAdapter extends ArrayAdapter {
         fone.setText(elementos.get(position).getFone());
         return  rowView;
     }
-
-
 }

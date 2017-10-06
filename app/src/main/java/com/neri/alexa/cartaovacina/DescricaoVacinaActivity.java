@@ -17,19 +17,14 @@ public class DescricaoVacinaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String nome = (String) intent.getSerializableExtra("nome");
         String idade = (String) intent.getSerializableExtra("idade");
-
         String dose = (String) intent.getSerializableExtra("dose");
         String quantidade = (String) intent.getSerializableExtra("quantidade");
 
         TextView Tsite = (TextView)findViewById(R.id.textVIewSite) ;
-
-
         TextView Tnome = (TextView) findViewById(R.id.textViewNome);
         TextView Tidade = (TextView) findViewById(R.id.textViewIdade);
-
         TextView Tdose = (TextView) findViewById(R.id.textViewDose);
         TextView Tquantidade = (TextView) findViewById(R.id.TextViewQtd);
-
 
         Tnome.setText(nome);
         Tidade.setText(idade);
@@ -48,6 +43,5 @@ public class DescricaoVacinaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

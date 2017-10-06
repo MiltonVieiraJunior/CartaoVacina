@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.neri.alexa.cartaovacina.Model.Hospital;
 import com.neri.alexa.cartaovacina.Model.Usuario;
 import com.neri.alexa.cartaovacina.R;
 
@@ -39,5 +38,4 @@ public class UsuarioAdapter extends ArrayAdapter<Usuario> {
         nomeUsuario.setText(elementos.get(position).getNome());
         return  rowView;
     }
-
 }

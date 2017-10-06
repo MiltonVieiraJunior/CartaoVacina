@@ -38,7 +38,6 @@ public class CadastroActivity extends AppCompatActivity {
                 usuario.setEmail(editEmail.getText().toString());
 
                 boolean res =  bd.salvaUsuario(usuario);
-
                 if (res=true) {
                     alert("cadsatrado");
                 }else{
@@ -50,17 +49,5 @@ public class CadastroActivity extends AppCompatActivity {
     private void alert(String s ){
         Toast.makeText(this,s, Toast.LENGTH_SHORT).show();
     }
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-    public BancoDados getBanco() {
-        return banco;
-    }
-    public void setBanco(BancoDados banco) {
-        this.banco = banco;
-    }
-
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }

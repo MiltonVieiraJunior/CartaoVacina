@@ -7,10 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.neri.alexa.cartaovacina.Model.Usuario;
-import com.neri.alexa.cartaovacina.Model.VacinaTomada;
 
 import java.util.ArrayList;
-
 
 /**
  * Created by alexa on 17/09/2017.
@@ -22,13 +20,10 @@ public class BancoDados extends SQLiteOpenHelper{
     private static String NOME_BANCO = "cartaovacina.db";
     private static final int VERSAO = 1;
     private static final String ID = "id";
-    private static final String ID_VACINA =  "id_vacina";
     private static final String TABELA = "usuario";
-    private static final String TABELA2 = "vacinass";
     private static final String NOME =  "nome";
     private static final String EMAIL = "email";
     private static final String DATA = "data";
-    private static final String VACINA =  "vacina";
 
     private static  final String[] COLUNAS = {ID,NOME,EMAIL};
 
@@ -42,11 +37,7 @@ public class BancoDados extends SQLiteOpenHelper{
                 " " + ID + " integer primary key autoincrement, " +
                 " " + NOME + " varchar, " + EMAIL + " varchar " + DATA + " varchar  );  " ;
 
-
-
-
-        db.execSQL(sql);
-
+     db.execSQL(sql);
     }
 
     @Override
@@ -54,13 +45,9 @@ public class BancoDados extends SQLiteOpenHelper{
         String sql = "DROP TABLE IF EXISTS "+TABELA;
         db.execSQL(sql);
         onCreate(db);
-
     }
 
-
-
-    public boolean salvaUsuario (Usuario usuario)
-    {
+    public boolean salvaUsuario (Usuario usuario) {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put (NOME, usuario.getNome());
@@ -91,7 +78,6 @@ public class BancoDados extends SQLiteOpenHelper{
         return usuario;
     }
 
-
     public ArrayList<Usuario> getAllUsuario(){
 
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -111,9 +97,7 @@ public class BancoDados extends SQLiteOpenHelper{
         return listaUsuarios;
     }
 
-
-    public int atualizaUsuario (Usuario usuario)
-    {
+    public int atualizaUsuario (Usuario usuario) {
             SQLiteDatabase db =this.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put (NOME, usuario.getNome());
@@ -122,22 +106,15 @@ public class BancoDados extends SQLiteOpenHelper{
         int i = db.update(TABELA,values,ID+" = ? ", new String[] {String.valueOf(usuario.getId())});
 
         db.close();
-
         return i;
     }
 
-    public int deletaUsuario (Usuario usuario)
-    {
+    public int deletaUsuario (Usuario usuario) {
 
-            SQLiteDatabase db=this.getWritableDatabase();
+        SQLiteDatabase db=this.getWritableDatabase();
 
         int i = db.delete(TABELA,ID+"=?", new String[] {String.valueOf(usuario.getId())});
         db.close();
         return i;
     }
-
-
-
-
-
 }

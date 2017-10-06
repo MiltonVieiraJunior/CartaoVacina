@@ -10,7 +10,6 @@ public class VacinaTomada {
     private int Id;
 
     public VacinaTomada() {
-
     }
     public int getId() {
         return Id;

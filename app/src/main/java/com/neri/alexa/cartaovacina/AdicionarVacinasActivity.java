@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.neri.alexa.cartaovacina.Model.Usuario;
@@ -19,7 +18,6 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
     private BancoDados bd;
     private Bancodados2 d;
 
-    Spinner vacinas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +28,6 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
         bd = new BancoDados(this);
         d= new Bancodados2(this);
         final Usuario usuario = bd.getUsuario(id);
-
-
-
-       // vacinas = (Spinner) findViewById(R.id.spinner);
-       // String []opciones = {"hepatite", "sarampo","toma"};
-
-      //  ArrayAdapter<String> adapter = new  ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
-      //  vacinas.setAdapter(adapter);
 
         Button addVacina =  (Button) findViewById(R.id.ADDvaciana);
         final EditText editText = (EditText) findViewById(R.id.editTextVacinaAdd);
@@ -55,14 +45,5 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
-
-
     }
 }

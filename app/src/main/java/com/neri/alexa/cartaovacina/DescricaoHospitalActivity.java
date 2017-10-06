@@ -39,6 +39,5 @@ public class DescricaoHospitalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

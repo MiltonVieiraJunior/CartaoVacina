@@ -6,22 +6,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.neri.alexa.cartaovacina.Model.Usuario;
 import com.neri.alexa.cartaovacina.Model.VacinaTomada;
 
 import java.util.ArrayList;
+
+/**
+ * Created by alexa on 06/10/2017.
+ */
 
 public class Bancodados2 extends SQLiteOpenHelper {
 
     private static String NOME_BANCO = "cartaovacina2.db";
     private static final int VERSAO = 1;
-    ;
     private static final String ID_VACINA = "id_vacina";
-
     private static final String TABELA2 = "vacinass";
-
     private static final String VACINA = "vacina";
-
 
     public Bancodados2(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
@@ -33,9 +32,7 @@ public class Bancodados2 extends SQLiteOpenHelper {
                 " " + ID_VACINA + " integer primary key , " +
                 " " + VACINA + " varchar  );";
 
-
         db.execSQL(sql);
-
     }
 
     @Override
@@ -43,7 +40,6 @@ public class Bancodados2 extends SQLiteOpenHelper {
         String sql = "DROP TABLE IF EXISTS " + TABELA2;
         db.execSQL(sql);
         onCreate(db);
-
     }
 
     public void salvaVacina(VacinaTomada v) {
@@ -54,9 +50,7 @@ public class Bancodados2 extends SQLiteOpenHelper {
 
         db.insert(TABELA2, null, values);
         db.close();
-
     }
-
 
     private VacinaTomada cursorToVacina(Cursor cursor) {
         VacinaTomada vacina = new VacinaTomada();
@@ -79,24 +73,18 @@ public class Bancodados2 extends SQLiteOpenHelper {
             do {
                 VacinaTomada va = cursorToVacina(cursor);
                 listaVacina.add(va);
-
             } while (cursor.moveToNext());
         }
         return listaVacina;
     }
 
-
     public int deleteVacinao (VacinaTomada vacina)
     {
-
         SQLiteDatabase db=this.getWritableDatabase();
 
         int i = db.delete(TABELA2,ID_VACINA+"=?", new String[] {String.valueOf(vacina.getId())});
         db.close();
         return i;
     }
-
-
-
 }
 
