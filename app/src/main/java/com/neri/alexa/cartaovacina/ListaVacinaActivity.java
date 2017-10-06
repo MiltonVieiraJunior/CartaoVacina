@@ -29,11 +29,10 @@ public class ListaVacinaActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int posicaoDaLinha, long id) {
 
-
-                    Intent intent= new Intent(ListaVacinaActivity.this, DescricaoVacinaActivity.class);
-                    intent.putExtra("nome", addvacinas().get(posicaoDaLinha).getNome());
-                    intent.putExtra("idade", addvacinas().get(posicaoDaLinha).getIdade());
-                    intent.putExtra("doenca", addvacinas().get(posicaoDaLinha).getDoenca_protecao());
+                Intent intent= new Intent(ListaVacinaActivity.this, DescricaoVacinaActivity.class);
+                intent.putExtra("nome", addvacinas().get(posicaoDaLinha).getNome());
+                intent.putExtra("idade", addvacinas().get(posicaoDaLinha).getIdade());
+                intent.putExtra("doenca", addvacinas().get(posicaoDaLinha).getDoenca_protecao());
                 intent.putExtra("dose", addvacinas().get(posicaoDaLinha).getDose());
                 intent.putExtra("quantidade", addvacinas().get(posicaoDaLinha).getQtd());
                 intent.putExtra("via", addvacinas().get(posicaoDaLinha).getVia_adm());

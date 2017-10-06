@@ -33,7 +33,6 @@ public class DescricaoHospitalActivity extends AppCompatActivity {
         Tfone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Uri uri = Uri.parse("tel:" + Tfone.getText().toString());
                 Intent intent = new Intent(Intent.ACTION_DIAL, uri);
 

@@ -10,10 +10,10 @@
 
     <TextView
         android:id="@+id/textViewNome"
-        android:layout_width="273dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginStart="43dp"
         android:layout_marginTop="51dp"
         android:text="nome"
         android:textSize="30sp"
@@ -50,9 +50,9 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="13dp"
         app:layout_constraintLeft_toLeftOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/textView6"
-        android:layout_marginLeft="40dp" />
+        android:layout_marginLeft="4dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -92,6 +92,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="51dp" />
+        android:layout_marginLeft="32dp" />
+
+    <TextView
+        android:id="@+id/textVIewSite"
+        android:layout_width="300dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="101dp"
+        android:layout_marginStart="19dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
 </android.support.constraint.ConstraintLayout>

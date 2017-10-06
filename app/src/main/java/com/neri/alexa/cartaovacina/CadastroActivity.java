@@ -27,7 +27,6 @@ public class CadastroActivity extends AppCompatActivity {
         editNome = (EditText) findViewById(R.id.editTextName);
         editEmail = (EditText) findViewById(R.id.editTextEmail);
 
-
         btnCadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,26 +46,19 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
-
-
-      private void alert(String s ){
+    private void alert(String s ){
         Toast.makeText(this,s, Toast.LENGTH_SHORT).show();
     }
-
     public Usuario getUsuario() {
         return usuario;
     }
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
     public BancoDados getBanco() {
         return banco;
     }
-
     public void setBanco(BancoDados banco) {
         this.banco = banco;
     }

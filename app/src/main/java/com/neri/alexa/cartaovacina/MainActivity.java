@@ -15,7 +15,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         ImageView iv = (ImageView) findViewById(R.id.imageView3);
         iv.setImageResource(R.drawable.zegotinha);
-
     }
 
     @Override

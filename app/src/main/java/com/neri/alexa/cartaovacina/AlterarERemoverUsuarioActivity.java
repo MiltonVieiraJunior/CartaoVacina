@@ -31,9 +31,7 @@ public class AlterarERemoverUsuarioActivity extends AppCompatActivity {
         EditNome.setText(usuario.getNome());
         EditEmail.setText(usuario.getEmail());
 
-
         Button alterar =  (Button) findViewById(R.id.buttonAlterarUsuario);
-
 
         alterar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +43,5 @@ public class AlterarERemoverUsuarioActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
-
-
     }
 }

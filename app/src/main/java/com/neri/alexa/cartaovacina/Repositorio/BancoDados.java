@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.neri.alexa.cartaovacina.Model.Usuario;
+import com.neri.alexa.cartaovacina.Model.VacinaTomada;
 
 import java.util.ArrayList;
 
@@ -23,18 +24,13 @@ public class BancoDados extends SQLiteOpenHelper{
     private static final String ID = "id";
     private static final String ID_VACINA =  "id_vacina";
     private static final String TABELA = "usuario";
-    private static final String TABELA2 = "vacinas";
+    private static final String TABELA2 = "vacinass";
     private static final String NOME =  "nome";
     private static final String EMAIL = "email";
     private static final String DATA = "data";
     private static final String VACINA =  "vacina";
-    private static final String sTABLE_USUARIO_VACINA = "tb_usuario_vacina";
-    private static final String sCOLUMN_USUARIO = "usuario";
-
-
 
     private static  final String[] COLUNAS = {ID,NOME,EMAIL};
-
 
     public BancoDados(Context context){
         super(context,NOME_BANCO,null,VERSAO);
@@ -44,21 +40,13 @@ public class BancoDados extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABELA + " ( " +
                 " " + ID + " integer primary key autoincrement, " +
-                " " + NOME + " varchar, " + EMAIL + " varchar " + DATA + " varchar  );" +
+                " " + NOME + " varchar, " + EMAIL + " varchar " + DATA + " varchar  );  " ;
 
-                "CREATE TABLE IF NOT EXISTS " + TABELA2 + " ( " +
-                " " + ID_VACINA + " integer primary key autoincrement, " +
-                " " + VACINA + " varchar " + "FOREIGN KEY(" + ID_VACINA + ") REFERENCES " + TABELA + "( " + ID + " );" +
 
-                "CREATE TABLE IF NOT EXISTS " + sTABLE_USUARIO_VACINA + " ( " +
-                " " + ID + " integer primary key autoincrement, " +
-                " " + VACINA + " integer, "
-                + sCOLUMN_USUARIO + " integer "
-                + "FOREIGN KEY(" + VACINA + ") REFERENCES " + TABELA2 + "( " + ID + " );"
-                + "FOREIGN KEY(" + sCOLUMN_USUARIO + ") REFERENCES " + TABELA + "( " + ID + " );";
 
 
         db.execSQL(sql);
+
     }
 
     @Override
@@ -69,15 +57,7 @@ public class BancoDados extends SQLiteOpenHelper{
 
     }
 
-    public void salvaVacina (Usuario usuario){
-        SQLiteDatabase db =this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put (VACINA, usuario.getVacina().getNome());
 
-        db.insert (TABELA2,null,values);
-        db.close();
-
-    }
 
     public boolean salvaUsuario (Usuario usuario)
     {
@@ -110,34 +90,6 @@ public class BancoDados extends SQLiteOpenHelper{
         usuario.setEmail(cursor.getString(2));
         return usuario;
     }
-
-
-
-
-    public ArrayList<Usuario> getAllVacina(){
-
-        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-
-        String query = "SELECT * FROM " + TABELA;
-
-        SQLiteDatabase db= this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-
-        if (cursor.moveToFirst()){
-            do{
-                Usuario usuario = cursorToUsuario(cursor);
-                listaUsuarios.add(usuario);
-
-            }while (cursor.moveToNext());
-        }
-        return listaUsuarios;
-    }
-
-
-
-
-
-
 
 
     public ArrayList<Usuario> getAllUsuario(){

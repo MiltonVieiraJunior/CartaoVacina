@@ -7,14 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.neri.alexa.cartaovacina.Model.Usuario;
-import com.neri.alexa.cartaovacina.Model.Vacina;
+import com.neri.alexa.cartaovacina.Model.VacinaTomada;
 import com.neri.alexa.cartaovacina.Repositorio.BancoDados;
+import com.neri.alexa.cartaovacina.Repositorio.Bancodados2;
 
 public class AdicionarVacinasActivity extends AppCompatActivity {
 
     private BancoDados bd;
+    private Bancodados2 d;
 
     Spinner vacinas;
     @Override
@@ -25,6 +28,7 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
         Intent intent = getIntent();
         final int id = intent.getIntExtra("ID",0);
         bd = new BancoDados(this);
+        d= new Bancodados2(this);
         final Usuario usuario = bd.getUsuario(id);
 
 
@@ -42,12 +46,12 @@ public class AdicionarVacinasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Vacina va = new Vacina("hepatite","12","fdf","fddf");
-
-
-                usuario.setVacina(va);
-
-                bd.salvaVacina(usuario);
+                VacinaTomada va = new VacinaTomada();
+                va.setNome(editText.getText().toString());
+                va.setId(usuario.getId());
+                d.salvaVacina(va);
+                Toast.makeText(getBaseContext(), "Vacina Adicionada com Sucesso.", Toast.LENGTH_LONG).show();
+                finish();
 
             }
         });

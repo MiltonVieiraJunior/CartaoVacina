@@ -1,8 +1,10 @@
 package com.neri.alexa.cartaovacina;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class DescricaoVacinaActivity extends AppCompatActivity {
@@ -19,6 +21,8 @@ public class DescricaoVacinaActivity extends AppCompatActivity {
         String dose = (String) intent.getSerializableExtra("dose");
         String quantidade = (String) intent.getSerializableExtra("quantidade");
 
+        TextView Tsite = (TextView)findViewById(R.id.textVIewSite) ;
+
 
         TextView Tnome = (TextView) findViewById(R.id.textViewNome);
         TextView Tidade = (TextView) findViewById(R.id.textViewIdade);
@@ -32,6 +36,18 @@ public class DescricaoVacinaActivity extends AppCompatActivity {
 
         Tdose.setText(dose);
         Tquantidade.setText(quantidade);
+        Tsite.setText("http://portalarquivos.saude.gov.br/campanhas/vacinareproteger/");
+
+        Tsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse("http://portalarquivos.saude.gov.br/campanhas/vacinareproteger/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+                startActivity(intent);
+            }
+        });
 
     }
 }
